@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synology Marketing Resources</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a1f36;
+  --navy-light: #252b47;
+  --blue: #0073b1;
+  --blue-hover: #005f94;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --border: #e0e0e0;
+  --bg: #fff;
+  --bg-light: #f7f7f7;
+  --bg-section: #f4f4f4;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  gap: 0;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-right: 40px;
+}
+.nav-logo svg { display: block; }
+.nav-logo-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .02em;
+  border-left: 1px solid rgba(255,255,255,.2);
+  padding-left: 10px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.nav-link {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+  padding: 0 12px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color .15s, background .15s;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,.08); }
+.nav-link.active { color: #fff; }
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-search-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background .15s;
+}
+.nav-search-btn:hover { background: rgba(255,255,255,.1); color: #fff; }
+.nav-btn {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,.3);
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: background .15s, border-color .15s;
+}
+.nav-btn:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+.nav-btn.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.nav-btn.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); }
+
+/* ── HERO CAROUSEL ── */
+.hero {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background: #0d1117;
+}
+.hero-track {
+  display: flex;
+  height: 100%;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+}
+.hero-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+}
+.hero-slide-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  display: block;
+}
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(13,17,23,.95) 38%, rgba(13,17,23,.4) 70%, rgba(13,17,23,.1) 100%);
+}
+.hero-content {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 56px;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 14px;
+}
+.hero-eyebrow span {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: .08em;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.hero-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -.02em;
+}
+.hero-subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 380px;
+}
+.hero-assets-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.hero-asset-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.6);
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--blue);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-decoration: none;
+  width: fit-content;
+  transition: background .15s;
+}
+.hero-cta:hover { background: var(--blue-hover); }
+.hero-cta svg { flex-shrink: 0; }
+
+.hero-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-dots { display: flex; gap: 6px; }
+.hero-dot {
+  width: 24px;
+  height: 3px;
+  background: rgba(255,255,255,.25);
+  cursor: pointer;
+  transition: background .2s, width .2s;
+  border-radius: 2px;
+}
+.hero-dot.active { background: #fff; width: 36px; }
+.hero-arrows {
+  position: absolute;
+  bottom: 18px;
+  right: 40px;
+  display: flex;
+  gap: 6px;
+}
+.hero-arrow {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 3px;
+  background: transparent;
+  color: rgba(255,255,255,.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, border-color .15s;
+}
+.hero-arrow:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.45); color: #fff; }
+.hero-counter {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .05em;
+}
+
+/* ── PAGE SECTIONS ── */
+.page { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+.section {
+  padding: 56px 0 0;
+}
+.section:last-child { padding-bottom: 80px; }
+
+.section-head { margin-bottom: 28px; }
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -.02em;
+}
+.section-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ── CORPORATE MATERIALS ── */
+.corp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.corp-card {
+  padding: 28px 24px 24px;
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.corp-card:last-child { border-right: none; }
+.corp-card:hover { background: var(--bg-light); }
+.corp-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+}
+.corp-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.corp-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.corp-link {
+  font-size: 13px;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+.corp-link svg { transition: transform .15s; }
+.corp-card:hover .corp-link svg { transform: translateX(3px); }
+
+/* ── BY SOLUTION ── */
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+.sol-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color .15s, box-shadow .15s;
+}
+.sol-card:hover {
+  border-color: #bbb;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+.sol-thumb {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7f7f7;
+}
+.sol-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.sol-body {
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+}
+.sol-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.sol-subs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sol-subs li {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.sol-subs li.more {
+  color: var(--blue);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ── BY FORMAT ── */
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.fmt-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 22px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s;
+}
+.fmt-card:nth-child(3n) { border-right: none; }
+.fmt-card:nth-last-child(-n+3) { border-bottom: none; }
+.fmt-card:hover { background: var(--bg-light); }
+.fmt-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--bg-section);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+.fmt-icon svg { display: block; }
+.fmt-info { flex: 1; min-width: 0; }
+.fmt-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.fmt-count { font-size: 12px; color: var(--text-muted); }
+.fmt-arrow { color: var(--text-muted); flex-shrink: 0; }
+.fmt-card:hover .fmt-arrow { color: var(--blue); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 56px 0 0;
+}
+
+/* ── SCROLL ANNOUNCE ── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-label="Synology">
+      <rect width="28" height="28" rx="4" fill="white"/>
+      <text x="4" y="20" font-family="sans-serif" font-size="13" font-weight="700" fill="#1a1f36">SY</text>
+    </svg>
+    <span class="nav-logo-text">Marketing Resources</span>
+  </a>
+  <div class="nav-links">
+    <a href="#" class="nav-link active">Home</a>
+    <a href="#" class="nav-link">Regional materials</a>
+    <a href="#" class="nav-link">Partner registration</a>
+  </div>
+  <div class="nav-right">
+    <button class="nav-search-btn" aria-label="Search">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle cx="7" cy="7" r="4.5"/>
+        <line x1="10.5" y1="10.5" x2="14" y2="14"/>
+      </svg>
+    </button>
+    <button class="nav-btn">Partner registration</button>
+    <button class="nav-btn primary">Log in</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="What's new">
+  <div class="hero-counter" id="hero-counter" aria-live="polite">1 / 3</div>
+  <div class="hero-track" id="hero-track">
+
+    <!-- Slide 1: PAS7700 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg">
+        <img src="large%20banner/PAS7700.jpg" alt="PAS7700">
+      </div>
+      <div class="hero-gradient"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span>New</span> Jun 2026 · Enterprise storage</div>
+        <div class="hero-title">PAS7700</div>
+        <div class="hero-subtitle">Scale into the petabyte era. All-flash performance built for mission-critical enterprise workloads.</div>
+        <div class="hero-assets-row">
+          <span class="hero-asset-tag">Banner</span>
+          <span class="hero-asset-tag">Video</span>
+          <span class="hero-asset-tag">Brochure</span>
+          <span class="hero-asset-tag">Slides</span>
+        </div>
+        <a href="#" class="hero-cta">
+          View launch kit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 2: FS6420 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg">
+        <img src="large%20banner/FS6420.jpg" alt="FS6420">
+      </div>
+      <div class="hero-gradient"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span>New</span> Apr 2026 · All-flash storage</div>
+        <div class="hero-title">FS6420</div>
+        <div class="hero-subtitle">High-density all-flash storage designed for low-latency, high-throughput enterprise environments.</div>
+        <div class="hero-assets-row">
+          <span class="hero-asset-tag">Banner</span>
+          <span class="hero-asset-tag">Brochure</span>
+          <span class="hero-asset-tag">Social</span>
+        </div>
+        <a href="#" class="hero-cta">
+          View launch kit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 3: RS6426xs+ series -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg">
+        <img src="large%20banner/RS6426xs%2B.jpg" alt="RS6426xs+ series">
+      </div>
+      <div class="hero-gradient"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow"><span>Recent</span> Feb 2026 · Business</div>
+        <div class="hero-title">XS+ series</div>
+        <div class="hero-subtitle">The RS4826xs+, RS6426xs+, and RS1626xs+ — built for high-availability business environments requiring maximum reliability.</div>
+        <div class="hero-assets-row">
+          <span class="hero-asset-tag">Banner</span>
+          <span class="hero-asset-tag">Brochure</span>
+          <span class="hero-asset-tag">Slides</span>
+          <span class="hero-asset-tag">Video</span>
+        </div>
+        <a href="#" class="hero-cta">
+          View launch kit
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /hero-track -->
+
+  <div class="hero-controls">
+    <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Carousel slides">
+      <div class="hero-dot active" role="tab" aria-selected="true" tabindex="0" onclick="goTo(0)"></div>
+      <div class="hero-dot" role="tab" tabindex="0" onclick="goTo(1)"></div>
+      <div class="hero-dot" role="tab" tabindex="0" onclick="goTo(2)"></div>
+    </div>
+  </div>
+  <div class="hero-arrows">
+    <button class="hero-arrow" onclick="prev()" aria-label="Previous slide">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="12" y1="7" x2="2" y2="7"/><polyline points="6,3 2,7 6,11"/>
+      </svg>
+    </button>
+    <button class="hero-arrow" onclick="next()" aria-label="Next slide">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<!-- PAGE CONTENT -->
+<main class="page" role="main">
+
+  <!-- CORPORATE MATERIALS -->
+  <section class="section" aria-labelledby="corp-heading">
+    <div class="section-head">
+      <div class="section-label">Always available</div>
+      <h2 class="section-title" id="corp-heading">Corporate materials</h2>
+      <p class="section-desc">Brand and company assets maintained on an ongoing basis</p>
+    </div>
+    <div class="corp-grid">
+      <a href="#" class="corp-card">
+        <div class="corp-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 4h12l6 6v14H5V4z"/><polyline points="17,4 17,10 23,10"/><line x1="9" y1="14" x2="19" y2="14"/><line x1="9" y1="18" x2="15" y2="18"/>
+          </svg>
+        </div>
+        <div class="corp-title">Solution guide</div>
+        <div class="corp-meta">24 files · Updated Apr 2026</div>
+        <div class="corp-link">
+          Explore all
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="6.5" x2="11" y2="6.5"/><polyline points="7.5,3 11,6.5 7.5,10"/>
+          </svg>
+        </div>
+      </a>
+      <a href="#" class="corp-card">
+        <div class="corp-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="3" width="20" height="22" rx="2"/><line x1="9" y1="9" x2="19" y2="9"/><line x1="9" y1="13" x2="19" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/>
+          </svg>
+        </div>
+        <div class="corp-title">Spec brochure</div>
+        <div class="corp-meta">61 files · Updated May 2026</div>
+        <div class="corp-link">
+          Explore all
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="6.5" x2="11" y2="6.5"/><polyline points="7.5,3 11,6.5 7.5,10"/>
+          </svg>
+        </div>
+      </a>
+      <a href="#" class="corp-card">
+        <div class="corp-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="22" height="16" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><line x1="14" y1="12" x2="14" y2="18"/><line x1="11" y1="15" x2="17" y2="15"/>
+          </svg>
+        </div>
+        <div class="corp-title">Company intro</div>
+        <div class="corp-meta">5 files · Updated Jan 2026</div>
+        <div class="corp-link">
+          Explore all
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="6.5" x2="11" y2="6.5"/><polyline points="7.5,3 11,6.5 7.5,10"/>
+          </svg>
+        </div>
+      </a>
+      <a href="#" class="corp-card">
+        <div class="corp-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2"/>
+          </svg>
+        </div>
+        <div class="corp-title">Company logo</div>
+        <div class="corp-meta">12 files · Updated 2025</div>
+        <div class="corp-link">
+          Explore all
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="2" y1="6.5" x2="11" y2="6.5"/><polyline points="7.5,3 11,6.5 7.5,10"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BY SOLUTION -->
+  <section class="section" aria-labelledby="sol-heading">
+    <div class="section-head">
+      <div class="section-label">Browse by solution</div>
+      <h2 class="section-title" id="sol-heading">Find assets by solution area</h2>
+      <p class="section-desc">Organized around Synology's core solution categories</p>
+    </div>
+    <div class="solution-grid">
+
+      <a href="#" class="sol-card">
+        <div class="sol-thumb">
+          <img src="by%20solution/productivity.jpg" alt="Productivity">
+        </div>
+        <div class="sol-body">
+          <div class="sol-title">Productivity</div>
+          <ul class="sol-subs">
+            <li>Synology Drive</li>
+            <li>MailPlus & Chat</li>
+            <li>Cross-office collaboration</li>
+            <li class="more">+3 more</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="sol-card">
+        <div class="sol-thumb">
+          <img src="by%20solution/storage.jpg" alt="Storage">
+        </div>
+        <div class="sol-body">
+          <div class="sol-title">Storage</div>
+          <ul class="sol-subs">
+            <li>Enterprise NAS</li>
+            <li>Scale-out storage</li>
+            <li>All-flash & hybrid</li>
+            <li class="more">+2 more</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="sol-card">
+        <div class="sol-thumb">
+          <img src="by%20solution/data%20protection.jpg" alt="Data protection">
+        </div>
+        <div class="sol-body">
+          <div class="sol-title">Data protection</div>
+          <ul class="sol-subs">
+            <li>ActiveProtect</li>
+            <li>VMware / Hyper-V backup</li>
+            <li>Ransomware protection</li>
+            <li class="more">+3 more</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="sol-card">
+        <div class="sol-thumb">
+          <img src="by%20solution/bee%20series.jpg" alt="Bee series">
+        </div>
+        <div class="sol-body">
+          <div class="sol-title">Bee series</div>
+          <ul class="sol-subs">
+            <li>BeeStation</li>
+            <li>BeeDrive</li>
+            <li>Personal cloud storage</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="sol-card">
+        <div class="sol-thumb">
+          <img src="by%20solution/video%20surveillance.jpg" alt="Video surveillance">
+        </div>
+        <div class="sol-body">
+          <div class="sol-title">Video surveillance</div>
+          <ul class="sol-subs">
+            <li>Surveillance Station</li>
+            <li>AI-powered analytics</li>
+            <li>IP camera management</li>
+            <li class="more">+2 more</li>
+          </ul>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BY FORMAT -->
+  <section class="section" aria-labelledby="fmt-heading">
+    <div class="section-head">
+      <div class="section-label">Browse by format</div>
+      <h2 class="section-title" id="fmt-heading">Find assets by type</h2>
+      <p class="section-desc">Jump directly to the kind of asset you need</p>
+    </div>
+    <div class="format-grid">
+
+      <a href="#" class="fmt-card">
+        <div class="fmt-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="16" height="12" rx="1.5"/><circle cx="7" cy="8.5" r="1.5"/><polyline points="2,14 6,10 9,13 13,9 18,14"/>
+          </svg>
+        </div>
+        <div class="fmt-info">
+          <div class="fmt-title">Banner &amp; digital ads</div>
+          <div class="fmt-count">84 files</div>
+        </div>
+        <svg class="fmt-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+        </svg>
+      </a>
+
+      <a href="#" class="fmt-card">
+        <div class="fmt-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="8"/><polygon points="8,7 14,10 8,13" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="fmt-info">
+          <div class="fmt-title">Video</div>
+          <div class="fmt-count">33 files</div>
+        </div>
+        <svg class="fmt-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+        </svg>
+      </a>
+
+      <a href="#" class="fmt-card">
+        <div class="fmt-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 2h9l5 5v11H4V2z"/><polyline points="13,2 13,7 18,7"/><line x1="7" y1="11" x2="13" y2="11"/><line x1="7" y1="14" x2="11" y2="14"/>
+          </svg>
+        </div>
+        <div class="fmt-info">
+          <div class="fmt-title">Brochure &amp; PDF</div>
+          <div class="fmt-count">102 files</div>
+        </div>
+        <svg class="fmt-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+        </svg>
+      </a>
+
+      <a href="#" class="fmt-card">
+        <div class="fmt-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="16" height="12" rx="1.5"/><line x1="7" y1="18" x2="13" y2="18"/><line x1="10" y1="15" x2="10" y2="18"/>
+          </svg>
+        </div>
+        <div class="fmt-info">
+          <div class="fmt-title">Slides &amp; training</div>
+          <div class="fmt-count">56 files</div>
+        </div>
+        <svg class="fmt-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+        </svg>
+      </a>
+
+      <a href="#" class="fmt-card">
+        <div class="fmt-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="10" height="16" rx="2"/><line x1="8" y1="5" x2="12" y2="5"/><circle cx="10" cy="14" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="fmt-info">
+          <div class="fmt-title">Social media</div>
+          <div class="fmt-count">47 files</div>
+        </div>
+        <svg class="fmt-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+        </svg>
+      </a>
+
+      <a href="#" class="fmt-card">
+        <div class="fmt-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="8"/><circle cx="10" cy="10" r="3"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="10" y1="16" x2="10" y2="18"/><line x1="2" y1="10" x2="4" y2="10"/><line x1="16" y1="10" x2="18" y2="10"/>
+          </svg>
+        </div>
+        <div class="fmt-info">
+          <div class="fmt-title">Product photos</div>
+          <div class="fmt-count">215 files</div>
+        </div>
+        <svg class="fmt-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/>
+        </svg>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<script>
+let cur = 0;
+const total = 3;
+const track = document.getElementById('hero-track');
+const dots = document.querySelectorAll('.hero-dot');
+const counter = document.getElementById('hero-counter');
+let timer = setInterval(next, 5000);
+
+function goTo(n) {
+  dots[cur].classList.remove('active');
+  dots[cur].setAttribute('aria-selected', 'false');
+  cur = (n + total) % total;
+  dots[cur].classList.add('active');
+  dots[cur].setAttribute('aria-selected', 'true');
+  track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+  counter.textContent = (cur + 1) + ' / ' + total;
+  clearInterval(timer);
+  timer = setInterval(next, 5000);
+}
+function next() { goTo(cur + 1); }
+function prev() { goTo(cur - 1); }
+
+document.querySelectorAll('.hero-dot').forEach((d, i) => {
+  d.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTo(i); }
+  });
+});
+</script>
+
+</body>
+</html>
